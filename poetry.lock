@@ -1,0 +1,1705 @@
+[[package]]
+name = "async-generator"
+version = "1.10"
+description = "Async generators and context managers for Python 3.5+"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "attrs"
+version = "22.1.0"
+description = "Classes Without Boilerplate"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.extras]
+dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit", "cloudpickle"]
+docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
+tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "zope.interface", "cloudpickle"]
+tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "mypy (>=0.900,!=0.940)", "pytest-mypy-plugins", "cloudpickle"]
+
+[[package]]
+name = "authlib"
+version = "1.1.0"
+description = "The ultimate Python library in building OAuth and OpenID Connect servers and clients."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+cryptography = ">=3.2"
+
+[[package]]
+name = "beautifulsoup4"
+version = "4.11.1"
+description = "Screen-scraping library"
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.dependencies]
+soupsieve = ">1.2"
+
+[package.extras]
+html5lib = ["html5lib"]
+lxml = ["lxml"]
+
+[[package]]
+name = "cached-property"
+version = "1.5.2"
+description = "A decorator for caching properties in classes."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "certifi"
+version = "2022.9.24"
+description = "Python package for providing Mozilla's CA Bundle."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "cffi"
+version = "1.15.1"
+description = "Foreign Function Interface for Python calling C code."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pycparser = "*"
+
+[[package]]
+name = "chardet"
+version = "3.0.4"
+description = "Universal encoding detector for Python 2 and 3"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "charset-normalizer"
+version = "2.1.1"
+description = "The Real First Universal Charset Detector. Open, modern and actively maintained alternative to Chardet."
+category = "main"
+optional = false
+python-versions = ">=3.6.0"
+
+[package.extras]
+unicode_backport = ["unicodedata2"]
+
+[[package]]
+name = "click"
+version = "8.1.3"
+description = "Composable command line interface toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[[package]]
+name = "clr-loader"
+version = "0.2.4"
+description = "Generic pure Python loader for .NET runtimes"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+cffi = ">=1.13"
+
+[[package]]
+name = "colorama"
+version = "0.4.6"
+description = "Cross-platform colored terminal text."
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "comtypes"
+version = "1.1.11"
+description = "Pure Python COM package"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "cryptography"
+version = "37.0.4"
+description = "cryptography is a package which provides cryptographic recipes and primitives to Python developers."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+cffi = ">=1.12"
+
+[package.extras]
+docs = ["sphinx (>=1.6.5,!=1.8.0,!=3.1.0,!=3.1.1)", "sphinx-rtd-theme"]
+docstest = ["pyenchant (>=1.6.11)", "twine (>=1.12.0)", "sphinxcontrib-spelling (>=4.0.1)"]
+pep8test = ["black", "flake8", "flake8-import-order", "pep8-naming"]
+sdist = ["setuptools_rust (>=0.11.4)"]
+ssh = ["bcrypt (>=3.1.5)"]
+test = ["pytest (>=6.2.0)", "pytest-benchmark", "pytest-cov", "pytest-subtests", "pytest-xdist", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
+
+[[package]]
+name = "decorator"
+version = "5.1.1"
+description = "Decorators for Humans"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "defusedxml"
+version = "0.7.1"
+description = "XML bomb protection for Python stdlib modules"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[[package]]
+name = "dnspython"
+version = "2.2.1"
+description = "DNS toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[package.extras]
+dnssec = ["cryptography (>=2.6,<37.0)"]
+curio = ["curio (>=1.2,<2.0)", "sniffio (>=1.1,<2.0)"]
+doh = ["h2 (>=4.1.0)", "httpx (>=0.21.1)", "requests (>=2.23.0,<3.0.0)", "requests-toolbelt (>=0.9.1,<0.10.0)"]
+idna = ["idna (>=2.1,<4.0)"]
+trio = ["trio (>=0.14,<0.20)"]
+wmi = ["wmi (>=1.5.1,<2.0.0)"]
+
+[[package]]
+name = "docutils"
+version = "0.19"
+description = "Docutils -- Python Documentation Utilities"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "et-xmlfile"
+version = "1.1.0"
+description = "An implementation of lxml.xmlfile for the standard library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "exceptiongroup"
+version = "1.0.1"
+description = "Backport of PEP 654 (exception groups)"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+test = ["pytest (>=6)"]
+
+[[package]]
+name = "exchangelib"
+version = "4.8.0"
+description = "Client for Microsoft Exchange Web Services (EWS)"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+cached-property = "*"
+defusedxml = ">=0.6.0"
+dnspython = ">=2.0.0"
+isodate = "*"
+lxml = ">3.0"
+oauthlib = "*"
+pygments = "*"
+requests = ">=2.7"
+requests-ntlm = ">=0.2.0"
+requests-oauthlib = "*"
+tzdata = "*"
+tzlocal = "*"
+
+[package.extras]
+complete = ["requests-gssapi", "requests-negotiate-sspi"]
+kerberos = ["requests-gssapi"]
+sspi = ["requests-negotiate-sspi"]
+
+[[package]]
+name = "fire"
+version = "0.4.0"
+description = "A library for automatically generating command line interfaces."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+termcolor = "*"
+
+[[package]]
+name = "fonttools"
+version = "4.38.0"
+description = "Tools to manipulate font files"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+all = ["fs (>=2.2.0,<3)", "lxml (>=4.0,<5)", "zopfli (>=0.1.4)", "lz4 (>=1.7.4.2)", "matplotlib", "sympy", "skia-pathops (>=0.5.0)", "uharfbuzz (>=0.23.0)", "brotlicffi (>=0.8.0)", "scipy", "brotli (>=1.0.1)", "munkres", "unicodedata2 (>=14.0.0)", "xattr"]
+graphite = ["lz4 (>=1.7.4.2)"]
+interpolatable = ["scipy", "munkres"]
+lxml = ["lxml (>=4.0,<5)"]
+pathops = ["skia-pathops (>=0.5.0)"]
+plot = ["matplotlib"]
+repacker = ["uharfbuzz (>=0.23.0)"]
+symfont = ["sympy"]
+type1 = ["xattr"]
+ufo = ["fs (>=2.2.0,<3)"]
+unicode = ["unicodedata2 (>=14.0.0)"]
+woff = ["zopfli (>=0.1.4)", "brotlicffi (>=0.8.0)", "brotli (>=1.0.1)"]
+
+[[package]]
+name = "fpdf2"
+version = "2.5.7"
+description = "Simple & fast PDF generation for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+defusedxml = "*"
+fonttools = "*"
+Pillow = ">=6.2.2"
+"svg.path" = "*"
+
+[[package]]
+name = "furl"
+version = "2.1.3"
+description = "URL manipulation made simple."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+orderedmultidict = ">=1.0.1"
+six = ">=1.8.0"
+
+[[package]]
+name = "graphviz"
+version = "0.13.2"
+description = "Simple Python interface for Graphviz"
+category = "main"
+optional = false
+python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
+
+[package.extras]
+dev = ["tox (>=3.0)", "flake8", "pep8-naming", "wheel", "twine"]
+docs = ["sphinx (>=1.7)", "sphinx-rtd-theme"]
+test = ["mock (>=2)", "pytest (>=3.4,!=3.10.0)", "pytest-mock (>=1.8)", "pytest-cov"]
+
+[[package]]
+name = "h11"
+version = "0.14.0"
+description = "A pure-Python, bring-your-own-I/O implementation of HTTP/1.1"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "htmldocx"
+version = "0.0.6"
+description = "Convert html to docx"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.7.0"
+python-docx = ">=0.8.10"
+
+[[package]]
+name = "hubspot-api-client"
+version = "4.0.6"
+description = "HubSpot API client"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+certifi = "*"
+python-dateutil = "*"
+six = ">=1.10"
+urllib3 = ">=1.15"
+
+[package.extras]
+dev = ["pytest", "black"]
+
+[[package]]
+name = "idna"
+version = "3.4"
+description = "Internationalized Domain Names in Applications (IDNA)"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "importlib-metadata"
+version = "4.13.0"
+description = "Read metadata from Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+zipp = ">=0.5"
+
+[package.extras]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "jaraco.tidelift (>=1.4)"]
+perf = ["ipython"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "packaging", "pyfakefs", "flufl.flake8", "pytest-perf (>=0.9.2)", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)", "importlib-resources (>=1.3)"]
+
+[[package]]
+name = "isodate"
+version = "0.6.1"
+description = "An ISO 8601 date/time/duration parser and formatter"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
+name = "java-access-bridge-wrapper"
+version = "0.9.5"
+description = "Python wrapper for the Windows Java Access Bridge"
+category = "main"
+optional = false
+python-versions = ">=3.6.2,<4.0.0"
+
+[package.dependencies]
+pywin32 = {version = ">=300,<304", markers = "python_version < \"3.7.6\" and sys_platform == \"win32\" or python_version > \"3.7.6\" and python_version < \"3.8.1\" and sys_platform == \"win32\" or python_version > \"3.8.1\" and sys_platform == \"win32\""}
+
+[[package]]
+name = "jsonpath-ng"
+version = "1.5.3"
+description = "A final implementation of JSONPath for Python that aims to be standard compliant, including arithmetic and binary comparison operators and providing clear AST for metaprogramming."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+decorator = "*"
+ply = "*"
+six = "*"
+
+[[package]]
+name = "jsonschema"
+version = "4.17.0"
+description = "An implementation of JSON Schema validation for Python"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+attrs = ">=17.4.0"
+pyrsistent = ">=0.14.0,<0.17.0 || >0.17.0,<0.17.1 || >0.17.1,<0.17.2 || >0.17.2"
+
+[package.extras]
+format = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3987", "uri-template", "webcolors (>=1.11)"]
+format-nongpl = ["fqdn", "idna", "isoduration", "jsonpointer (>1.13)", "rfc3339-validator", "rfc3986-validator (>0.1.0)", "uri-template", "webcolors (>=1.11)"]
+
+[[package]]
+name = "lxml"
+version = "4.9.1"
+description = "Powerful and Pythonic XML processing library combining libxml2/libxslt with the ElementTree API."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, != 3.4.*"
+
+[package.extras]
+cssselect = ["cssselect (>=0.7)"]
+html5 = ["html5lib"]
+htmlsoup = ["beautifulsoup4"]
+source = ["Cython (>=0.29.7)"]
+
+[[package]]
+name = "mss"
+version = "6.1.0"
+description = "An ultra fast cross-platform multiple screenshots module in pure python using ctypes."
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[[package]]
+name = "netsuitesdk"
+version = "1.24.0"
+description = "Python SDK for accessing the NetSuite SOAP webservice"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+zeep = "*"
+
+[[package]]
+name = "notifiers"
+version = "1.3.3"
+description = "The easy way to send notifications"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+click = ">=8.0.3,<9.0.0"
+jsonschema = ">=4.4.0,<5.0.0"
+requests = ">=2.27.1,<3.0.0"
+
+[[package]]
+name = "ntlm-auth"
+version = "1.5.0"
+description = "Creates NTLM authentication structures"
+category = "main"
+optional = false
+python-versions = ">=2.6,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+
+[package.extras]
+cryptography = ["cryptography (<2.2)", "cryptography"]
+
+[[package]]
+name = "numpy"
+version = "1.23.4"
+description = "NumPy is the fundamental package for array computing with Python."
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[[package]]
+name = "o365"
+version = "2.0.21"
+description = "Microsoft Graph and Office 365 API made easy"
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[package.dependencies]
+beautifulsoup4 = ">=4.0.0"
+python-dateutil = ">=2.7"
+pytz = ">=2018.5"
+requests = ">=2.18.0"
+requests-oauthlib = ">=1.2.0"
+stringcase = ">=1.2.0"
+tzlocal = ">=4.0"
+
+[[package]]
+name = "oauthlib"
+version = "3.2.2"
+description = "A generic, spec-compliant, thorough implementation of the OAuth request-signing logic"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+rsa = ["cryptography (>=3.0.0)"]
+signals = ["blinker (>=1.4.0)"]
+signedtoken = ["cryptography (>=3.0.0)", "pyjwt (>=2.0.0,<3)"]
+
+[[package]]
+name = "openpyxl"
+version = "3.0.10"
+description = "A Python library to read/write Excel 2010 xlsx/xlsm files"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+et-xmlfile = "*"
+
+[[package]]
+name = "orderedmultidict"
+version = "1.0.1"
+description = "Ordered Multivalue Dictionary"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.8.0"
+
+[[package]]
+name = "outcome"
+version = "1.2.0"
+description = "Capture the outcome of Python function calls."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+attrs = ">=19.2.0"
+
+[[package]]
+name = "packaging"
+version = "21.3"
+description = "Core utilities for Python packages"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyparsing = ">=2.0.2,<3.0.5 || >3.0.5"
+
+[[package]]
+name = "pandas"
+version = "1.5.1"
+description = "Powerful data structures for data analysis, time series, and statistics"
+category = "main"
+optional = false
+python-versions = ">=3.8"
+
+[package.dependencies]
+numpy = [
+    {version = ">=1.20.3", markers = "python_version < \"3.10\""},
+    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
+]
+python-dateutil = ">=2.8.1"
+pytz = ">=2020.1"
+
+[package.extras]
+test = ["hypothesis (>=5.5.3)", "pytest (>=6.0)", "pytest-xdist (>=1.31)"]
+
+[[package]]
+name = "pdfminer.six"
+version = "20201018"
+description = "PDF parser and analyzer"
+category = "main"
+optional = false
+python-versions = ">=3.4"
+
+[package.dependencies]
+chardet = {version = "*", markers = "python_version > \"3.0\""}
+cryptography = "*"
+sortedcontainers = "*"
+
+[package.extras]
+dev = ["nose", "tox"]
+docs = ["sphinx", "sphinx-argparse"]
+
+[[package]]
+name = "pillow"
+version = "9.3.0"
+description = "Python Imaging Library (Fork)"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-issues (>=3.0.1)", "sphinx-removed-in", "sphinxext-opengraph"]
+tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
+
+[[package]]
+name = "platformdirs"
+version = "2.5.3"
+description = "A small Python package for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo (>=2022.9.29)", "proselint (>=0.13)", "sphinx-autodoc-typehints (>=1.19.4)", "sphinx (>=5.3)"]
+test = ["appdirs (==1.4.4)", "pytest-cov (>=4)", "pytest-mock (>=3.10)", "pytest (>=7.2)"]
+
+[[package]]
+name = "ply"
+version = "3.11"
+description = "Python Lex & Yacc"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "proxy-tools"
+version = "0.1.0"
+description = "Proxy Implementation"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "psutil"
+version = "5.9.4"
+description = "Cross-platform lib for process and system monitoring in Python."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.extras]
+test = ["ipaddress", "mock", "enum34", "pywin32", "wmi"]
+
+[[package]]
+name = "pycparser"
+version = "2.21"
+description = "C parser in Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "pygments"
+version = "2.13.0"
+description = "Pygments is a syntax highlighting package written in Python."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+plugins = ["importlib-metadata"]
+
+[[package]]
+name = "pynput-robocorp-fork"
+version = "4.0.0"
+description = "Monitor and control user input devices"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pyobjc-core = {version = ">=7.0,<8.0", markers = "sys_platform == \"darwin\""}
+pyobjc-framework-Cocoa = {version = ">=7.0,<8.0", markers = "sys_platform == \"darwin\""}
+pyobjc-framework-Quartz = {version = ">=7.0,<8.0", markers = "sys_platform == \"darwin\""}
+python-xlib = {version = ">=0.17", markers = "sys_platform in \"linux\""}
+six = "*"
+
+[[package]]
+name = "pyobjc-core"
+version = "7.3"
+description = "Python<->ObjC Interoperability Module"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "pyobjc-framework-cocoa"
+version = "7.3"
+description = "Wrappers for the Cocoa frameworks on macOS"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyobjc-core = ">=7.3"
+
+[[package]]
+name = "pyobjc-framework-quartz"
+version = "7.3"
+description = "Wrappers for the Quartz frameworks on macOS"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyobjc-core = ">=7.3"
+pyobjc-framework-Cocoa = ">=7.3"
+
+[[package]]
+name = "pyobjc-framework-webkit"
+version = "7.3"
+description = "Wrappers for the framework WebKit on macOS"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pyobjc-core = ">=7.3"
+pyobjc-framework-Cocoa = ">=7.3"
+
+[[package]]
+name = "pyotp"
+version = "2.7.0"
+description = "Python One Time Password Library"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "pyparsing"
+version = "3.0.9"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
+category = "main"
+optional = false
+python-versions = ">=3.6.8"
+
+[package.extras]
+diagrams = ["railroad-diagrams", "jinja2"]
+
+[[package]]
+name = "pypdf2"
+version = "1.28.6"
+description = "A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files"
+category = "main"
+optional = false
+python-versions = ">=2.7"
+
+[[package]]
+name = "pyperclip"
+version = "1.8.2"
+description = "A cross-platform clipboard module for Python. (Only handles plain text for now.)"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyqt5"
+version = "5.15.7"
+description = "Python bindings for the Qt cross platform application toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+PyQt5-Qt5 = ">=5.15.0"
+PyQt5-sip = ">=12.11,<13"
+
+[[package]]
+name = "pyqt5-qt5"
+version = "5.15.2"
+description = "The subset of a Qt installation needed by PyQt5."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyqt5-sip"
+version = "12.11.0"
+description = "The sip module support for PyQt5"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "pyqtwebengine"
+version = "5.15.6"
+description = "Python bindings for the Qt WebEngine framework"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+PyQt5 = ">=5.15.4"
+PyQt5-sip = ">=12.11,<13"
+PyQtWebEngine-Qt5 = ">=5.15.0"
+
+[[package]]
+name = "pyqtwebengine-qt5"
+version = "5.15.2"
+description = "The subset of a Qt installation needed by PyQtWebEngine."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pyrsistent"
+version = "0.19.2"
+description = "Persistent/Functional/Immutable data structures"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "pysocks"
+version = "1.7.1"
+description = "A Python SOCKS client module. See https://github.com/Anorov/PySocks for more information."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[[package]]
+name = "python-dateutil"
+version = "2.8.2"
+description = "Extensions to the standard Python datetime module"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+
+[package.dependencies]
+six = ">=1.5"
+
+[[package]]
+name = "python-docx"
+version = "0.8.11"
+description = "Create and update Microsoft Word .docx files."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+lxml = ">=2.3.2"
+
+[[package]]
+name = "python-dotenv"
+version = "0.21.0"
+description = "Read key-value pairs from a .env file and set them as environment variables"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+cli = ["click (>=5.0)"]
+
+[[package]]
+name = "python-xlib"
+version = "0.32"
+description = "Python X Library"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = ">=1.10.0"
+
+[[package]]
+name = "pythonnet"
+version = "3.0.0"
+description = ".NET and Mono integration for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+clr-loader = ">=0.2.2,<0.3.0"
+
+[[package]]
+name = "pytz"
+version = "2022.6"
+description = "World timezone definitions, modern and historical"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pytz-deprecation-shim"
+version = "0.1.0.post0"
+description = "Shims to make deprecation of pytz easier"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,>=2.7"
+
+[package.dependencies]
+tzdata = {version = "*", markers = "python_version >= \"3.6\""}
+
+[[package]]
+name = "pywebview"
+version = "3.6.3"
+description = "Build GUI for your Python program with JavaScript, HTML, and CSS."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+proxy-tools = "*"
+pyobjc-core = {version = "*", markers = "sys_platform == \"darwin\""}
+pyobjc-framework-Cocoa = {version = "*", markers = "sys_platform == \"darwin\""}
+pyobjc-framework-WebKit = {version = "*", markers = "sys_platform == \"darwin\""}
+pythonnet = {version = "*", markers = "sys_platform == \"win32\""}
+QtPy = {version = "*", markers = "sys_platform == \"openbsd6\""}
+
+[package.extras]
+cef = ["cefpython3"]
+gtk = ["pygobject"]
+pyside2 = ["qtpy", "pyside2"]
+pyside6 = ["qtpy", "pyside6"]
+qt = ["qtpy", "pyqt5", "pyqtwebengine"]
+
+[[package]]
+name = "pywin32"
+version = "303"
+description = "Python for Window Extensions"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "pywinauto"
+version = "0.6.8"
+description = "A set of Python modules to automate the Microsoft Windows GUI"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+comtypes = "*"
+pywin32 = "*"
+six = "*"
+
+[[package]]
+name = "pyyaml"
+version = "5.4.1"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[[package]]
+name = "qtpy"
+version = "2.3.0"
+description = "Provides an abstraction layer on top of the various Qt bindings (PyQt5/6 and PySide2/6)."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+packaging = "*"
+
+[package.extras]
+test = ["pytest (>=6,!=7.0.0,!=7.0.1)", "pytest-cov (>=3.0.0)", "pytest-qt"]
+
+[[package]]
+name = "requests"
+version = "2.28.1"
+description = "Python HTTP for Humans."
+category = "main"
+optional = false
+python-versions = ">=3.7, <4"
+
+[package.dependencies]
+certifi = ">=2017.4.17"
+charset-normalizer = ">=2,<3"
+idna = ">=2.5,<4"
+PySocks = {version = ">=1.5.6,<1.5.7 || >1.5.7", optional = true, markers = "extra == \"socks\""}
+urllib3 = ">=1.21.1,<1.27"
+
+[package.extras]
+socks = ["PySocks (>=1.5.6,!=1.5.7)"]
+use_chardet_on_py3 = ["chardet (>=3.0.2,<6)"]
+
+[[package]]
+name = "requests-file"
+version = "1.5.1"
+description = "File transport adapter for Requests"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests = ">=1.0.0"
+six = "*"
+
+[[package]]
+name = "requests-ntlm"
+version = "1.1.0"
+description = "This package allows for HTTP NTLM authentication using the requests library."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+cryptography = ">=1.3"
+ntlm-auth = ">=1.0.2"
+requests = ">=2.0.0"
+
+[[package]]
+name = "requests-oauthlib"
+version = "1.3.1"
+description = "OAuthlib authentication support for Requests."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+oauthlib = ">=3.0.0"
+requests = ">=2.0.0"
+
+[package.extras]
+rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
+
+[[package]]
+name = "requests-toolbelt"
+version = "0.10.1"
+description = "A utility belt for advanced users of python-requests"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+requests = ">=2.0.1,<3.0.0"
+
+[[package]]
+name = "robocorp-dialog"
+version = "0.5.3"
+description = "Dialog for querying user input"
+category = "main"
+optional = false
+python-versions = ">=3.6.2,<4.0.0"
+
+[package.dependencies]
+PyQt5 = {version = ">=5.15.2,<6.0.0", markers = "sys_platform == \"linux\""}
+PyQtWebEngine = {version = ">=5.15.2,<6.0.0", markers = "sys_platform == \"linux\""}
+pywebview = {version = "3.6.3", markers = "sys_platform == \"linux\""}
+
+[[package]]
+name = "robotframework"
+version = "5.0.1"
+description = "Generic automation framework for acceptance testing and robotic process automation (RPA)"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "robotframework-pythonlibcore"
+version = "3.0.0"
+description = "Tools to ease creating larger test libraries for Robot Framework using Python."
+category = "main"
+optional = false
+python-versions = ">=3.6, <4"
+
+[[package]]
+name = "robotframework-requests"
+version = "0.9.4"
+description = "Robot Framework keyword library wrapper around requests"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+requests = "*"
+robotframework = "*"
+
+[package.extras]
+test = ["robotframework (>=3.2.1)", "pytest", "flask", "six", "coverage", "flake8"]
+
+[[package]]
+name = "robotframework-sapguilibrary"
+version = "1.1"
+description = "A Robot Framework Library for automating the SAP GUI desktop client"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+pywin32 = ">=222"
+robotframework = ">=2.9"
+
+[[package]]
+name = "robotframework-seleniumlibrary"
+version = "6.0.0"
+description = "Web testing library for Robot Framework"
+category = "main"
+optional = false
+python-versions = ">=3.6, <4"
+
+[package.dependencies]
+robotframework = ">=3.2.2"
+robotframework-pythonlibcore = ">=2.2.1"
+selenium = ">=4.0.0"
+
+[[package]]
+name = "robotframework-seleniumtestability"
+version = "2.0.0"
+description = "SeleniumTestability library that helps speed up tests withasyncronous evens"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+furl = "*"
+robotframework-seleniumlibrary = ">=4.0.0"
+wrapt = "*"
+
+[[package]]
+name = "rpaframework"
+version = "19.1.1"
+description = "A collection of tools and libraries for RPA"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+chardet = ">=3.0.0,<4.0.0"
+click = ">=8.1.2,<9.0.0"
+comtypes = {version = "1.1.11", markers = "sys_platform == \"win32\""}
+cryptography = ">=37.0.4,<38.0.0"
+docutils = "*"
+exchangelib = ">=4.7.6,<5.0.0"
+graphviz = ">=0.13.2,<0.14.0"
+htmldocx = ">=0.0.6,<0.0.7"
+hubspot-api-client = ">=4.0.6,<5.0.0"
+importlib-metadata = ">=4.13.0,<5.0.0"
+java-access-bridge-wrapper = ">=0.9.5,<0.10.0"
+jsonpath-ng = ">=1.5.2,<2.0.0"
+mss = ">=6.0.0,<7.0.0"
+netsuitesdk = ">=1.1.0,<2.0.0"
+notifiers = ">=1.3.3,<2.0.0"
+O365 = ">=2.0.21,<3.0.0"
+openpyxl = ">=3.0.9,<4.0.0"
+pillow = ">=9.1.1,<10.0.0"
+psutil = {version = ">=5.7.0,<6.0.0", markers = "sys_platform == \"win32\""}
+pynput-robocorp-fork = ">=4.0.0,<5.0.0"
+pyotp = ">=2.6.0,<3.0.0"
+pyperclip = ">=1.8.0,<2.0.0"
+PySocks = ">=1.5.6,<1.5.7 || >1.5.7,<2.0.0"
+python-xlib = {version = ">=0.17", markers = "sys_platform == \"linux\""}
+pywin32 = {version = ">=302,<304", markers = "python_full_version != \"3.7.6\" and python_full_version != \"3.8.1\" and sys_platform == \"win32\""}
+pywinauto = {version = ">=0.6.8,<0.7.0", markers = "python_full_version != \"3.7.6\" and python_full_version != \"3.8.1\" and sys_platform == \"win32\""}
+PyYAML = ">=5.4.1,<6.0.0"
+robotframework = ">=4.0.0,<4.0.1 || >4.0.1,<6.0.0"
+robotframework-pythonlibcore = ">=3.0.0,<4.0.0"
+robotframework-requests = ">=0.9.1,<0.10.0"
+robotframework-sapguilibrary = {version = ">=1.1,<2.0", markers = "sys_platform == \"win32\""}
+robotframework-seleniumlibrary = ">=6.0.0,<7.0.0"
+robotframework-seleniumtestability = ">=2.0.0,<3.0.0"
+rpaframework-core = ">=10.0.1,<11.0.0"
+rpaframework-dialogs = ">=4.0.0,<5.0.0"
+rpaframework-pdf = ">=5.0.0,<6.0.0"
+rpaframework-windows = {version = ">=6.1.0,<7.0.0", markers = "sys_platform == \"win32\""}
+selenium = ">=4.4.0,<5.0.0"
+simple_salesforce = ">=1.0.0,<2.0.0"
+tenacity = ">=8.0.1,<9.0.0"
+tweepy = ">=3.8.0,<4.0.0"
+tzlocal = ">=4.2,<5.0"
+xlrd = ">=2.0.1,<3.0.0"
+xlutils = ">=2.0.0,<3.0.0"
+xlwt = ">=1.3.0,<2.0.0"
+
+[package.extras]
+aws = ["rpaframework-aws (>=5.2.1,<6.0.0)"]
+cv = ["rpaframework-recognition (>=5.0.0,<6.0.0)"]
+playwright = ["robotframework-browser (>=13.0.0,<14.0.0)"]
+
+[[package]]
+name = "rpaframework-core"
+version = "10.0.1"
+description = "Core utilities used by RPA Framework"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+packaging = ">=21.3,<22.0"
+pillow = ">=9.1.1,<10.0.0"
+psutil = {version = ">=5.9.0,<6.0.0", markers = "sys_platform == \"win32\""}
+pywin32 = {version = ">=300,<304", markers = "python_full_version != \"3.7.6\" and python_full_version != \"3.8.1\" and sys_platform == \"win32\""}
+selenium = ">=4.4.0,<5.0.0"
+uiautomation = {version = ">=2.0.15,<3.0.0", markers = "sys_platform == \"win32\""}
+webdriver-manager = ">=3.8.3,<4.0.0"
+
+[[package]]
+name = "rpaframework-dialogs"
+version = "4.0.0"
+description = "Dialogs library of RPA Framework"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+robocorp-dialog = ">=0.5.3,<0.6.0"
+robotframework = ">=4.0.0,<4.0.1 || >4.0.1,<6.0.0"
+rpaframework-core = ">=10.0.0,<11.0.0"
+
+[[package]]
+name = "rpaframework-pdf"
+version = "5.0.0"
+description = "PDF library of RPA Framework"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+fpdf2 = ">=2.5.2,<3.0.0"
+"pdfminer.six" = "20201018"
+pypdf2 = ">=1.27.4,<1.27.10 || >1.27.10,<1.27.11 || >1.27.11,<2.0.0"
+robotframework = ">=4.0.0,<4.0.1 || >4.0.1,<6.0.0"
+robotframework-pythonlibcore = ">=3.0.0,<4.0.0"
+rpaframework-core = ">=10.0.0,<11.0.0"
+
+[[package]]
+name = "rpaframework-windows"
+version = "6.1.0"
+description = "Windows library for RPA Framework"
+category = "main"
+optional = false
+python-versions = ">=3.7,<4.0"
+
+[package.dependencies]
+comtypes = {version = "1.1.11", markers = "sys_platform == \"win32\""}
+fire = ">=0.4.0,<0.5.0"
+psutil = {version = ">=5.9.0,<6.0.0", markers = "sys_platform == \"win32\""}
+pynput-robocorp-fork = ">=4.0.0,<5.0.0"
+pywin32 = {version = ">=300,<304", markers = "python_full_version != \"3.7.6\" and python_full_version != \"3.8.1\" and sys_platform == \"win32\""}
+robotframework = ">=4.0.0,<4.0.1 || >4.0.1,<6.0.0"
+robotframework-pythonlibcore = ">=3.0.0,<4.0.0"
+rpaframework-core = ">=10.0.0,<11.0.0"
+uiautomation = ">=2.0.15,<3.0.0"
+
+[[package]]
+name = "selenium"
+version = "4.6.0"
+description = ""
+category = "main"
+optional = false
+python-versions = "~=3.7"
+
+[package.dependencies]
+certifi = ">=2021.10.8"
+trio = ">=0.17,<1.0"
+trio-websocket = ">=0.9,<1.0"
+urllib3 = {version = ">=1.26,<2.0", extras = ["socks"]}
+
+[[package]]
+name = "simple-salesforce"
+version = "1.12.2"
+description = "A basic Salesforce.com REST API client."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+authlib = "*"
+requests = ">=2.22.0"
+zeep = "*"
+
+[[package]]
+name = "simple-term-menu"
+version = "1.5.2"
+description = "A Python package which creates simple interactive menus on the command line."
+category = "main"
+optional = false
+python-versions = "~=3.5"
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "sniffio"
+version = "1.3.0"
+description = "Sniff out which async library your code is running under"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
+name = "sortedcontainers"
+version = "2.4.0"
+description = "Sorted Containers -- Sorted List, Sorted Dict, Sorted Set"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "soupsieve"
+version = "2.3.2.post1"
+description = "A modern CSS selector implementation for Beautiful Soup."
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
+name = "stringcase"
+version = "1.2.0"
+description = "String case converter."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "svg.path"
+version = "6.2"
+description = "SVG path objects and parser"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.extras]
+test = ["pillow", "pytest", "pytest-cov"]
+
+[[package]]
+name = "tenacity"
+version = "8.1.0"
+description = "Retry code until it succeeds"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.extras]
+doc = ["reno", "sphinx", "tornado (>=4.5)"]
+
+[[package]]
+name = "termcolor"
+version = "2.1.0"
+description = "ANSI color formatting for output in terminal"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
+
+[[package]]
+name = "tqdm"
+version = "4.64.1"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["py-make (>=0.1.0)", "twine", "wheel"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
+name = "trio"
+version = "0.22.0"
+description = "A friendly Python library for async concurrency and I/O"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+async-generator = ">=1.9"
+attrs = ">=19.2.0"
+cffi = {version = ">=1.14", markers = "os_name == \"nt\" and implementation_name != \"pypy\""}
+exceptiongroup = {version = ">=1.0.0rc9", markers = "python_version < \"3.11\""}
+idna = "*"
+outcome = "*"
+sniffio = "*"
+sortedcontainers = "*"
+
+[[package]]
+name = "trio-websocket"
+version = "0.9.2"
+description = "WebSocket library for Trio"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+async-generator = ">=1.10"
+trio = ">=0.11"
+wsproto = ">=0.14"
+
+[[package]]
+name = "tweepy"
+version = "3.10.0"
+description = "Twitter library for Python"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+
+[package.dependencies]
+requests = {version = ">=2.11.1", extras = ["socks"]}
+requests-oauthlib = ">=0.7.0"
+six = ">=1.10.0"
+
+[package.extras]
+dev = ["coveralls (>=1.8.2)", "tox (>=2.4.0)"]
+test = ["mock (>=1.0.1)", "nose (>=1.3.3)", "vcrpy (>=1.10.3)"]
+
+[[package]]
+name = "tzdata"
+version = "2022.6"
+description = "Provider of IANA time zone data"
+category = "main"
+optional = false
+python-versions = ">=2"
+
+[[package]]
+name = "tzlocal"
+version = "4.2"
+description = "tzinfo object for the local timezone"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[package.dependencies]
+pytz-deprecation-shim = "*"
+tzdata = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+devenv = ["black", "pyroma", "pytest-cov", "zest.releaser"]
+test = ["pytest-mock (>=3.3)", "pytest (>=4.3)"]
+
+[[package]]
+name = "uiautomation"
+version = "2.0.17"
+description = "Python UIAutomation for Windows"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+comtypes = ">=1.1.10"
+
+[[package]]
+name = "urllib3"
+version = "1.26.12"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, <4"
+
+[package.dependencies]
+PySocks = {version = ">=1.5.6,<1.5.7 || >1.5.7,<2.0", optional = true, markers = "extra == \"socks\""}
+
+[package.extras]
+brotli = ["brotlicffi (>=0.8.0)", "brotli (>=1.0.9)", "brotlipy (>=0.6.0)"]
+secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "urllib3-secure-extra", "ipaddress"]
+socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+
+[[package]]
+name = "webdriver-manager"
+version = "3.8.4"
+description = "Library provides the way to automatically manage drivers for different browsers"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+python-dotenv = "*"
+requests = "*"
+tqdm = "*"
+
+[[package]]
+name = "wrapt"
+version = "1.14.1"
+description = "Module for decorators, wrappers and monkey patching."
+category = "main"
+optional = false
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
+
+[[package]]
+name = "wsproto"
+version = "1.2.0"
+description = "WebSockets state-machine based protocol implementation"
+category = "main"
+optional = false
+python-versions = ">=3.7.0"
+
+[package.dependencies]
+h11 = ">=0.9.0,<1"
+
+[[package]]
+name = "xlrd"
+version = "2.0.1"
+description = "Library for developers to extract data from Microsoft Excel (tm) .xls spreadsheet files"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
+
+[package.extras]
+build = ["wheel", "twine"]
+docs = ["sphinx"]
+test = ["pytest", "pytest-cov"]
+
+[[package]]
+name = "xlutils"
+version = "2.0.0"
+description = "Utilities for working with Excel files that require both xlrd and xlwt"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+xlrd = ">=0.7.2"
+xlwt = ">=0.7.4"
+
+[package.extras]
+build = ["pkginfo", "setuptools-git", "sphinx", "twine", "wheel"]
+test = ["coveralls", "errorhandler", "manuel", "mock", "nose", "nose-cov", "nose-fixes", "testfixtures", "tox"]
+
+[[package]]
+name = "xlwt"
+version = "1.3.0"
+description = "Library to create spreadsheet files compatible with MS Excel 97/2000/XP/2003 XLS files, on any platform, with Python 2.6, 2.7, 3.3+"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "zeep"
+version = "4.2.0"
+description = "A modern/fast Python SOAP client based on lxml / requests"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+attrs = ">=17.2.0"
+isodate = ">=0.5.4"
+lxml = ">=4.6.0"
+platformdirs = ">=1.4.0"
+pytz = "*"
+requests = ">=2.7.0"
+requests-file = ">=1.5.1"
+requests-toolbelt = ">=0.7.1"
+
+[package.extras]
+async = ["httpx (>=0.15.0)"]
+docs = ["sphinx (>=1.4.0)"]
+test = ["coverage[toml] (==5.2.1)", "freezegun (==0.3.15)", "pretend (==1.0.9)", "pytest-cov (==2.8.1)", "pytest-httpx", "pytest-asyncio", "pytest (==6.2.5)", "requests-mock (>=0.7.0)", "isort (==5.3.2)", "flake8 (==3.8.3)", "flake8-blind-except (==0.1.1)", "flake8-debugger (==3.2.1)", "flake8-imports (==0.1.1)"]
+xmlsec = ["xmlsec (>=0.6.1)"]
+
+[[package]]
+name = "zipp"
+version = "3.10.0"
+description = "Backport of pathlib-compatible object wrapper for zip files"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["sphinx (>=3.5)", "jaraco.packaging (>=9)", "rst.linker (>=1.9)", "furo", "jaraco.tidelift (>=1.4)"]
+testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "flake8 (<5)", "pytest-cov", "pytest-enabler (>=1.3)", "jaraco.itertools", "func-timeout", "jaraco.functools", "more-itertools", "pytest-black (>=0.3.7)", "pytest-mypy (>=0.9.1)"]
+
+[metadata]
+lock-version = "1.1"
+python-versions = "^3.9"
+content-hash = "f2577b9e0b81a549cafeb3b0a5e91cc740821861d75e39fb1c143cceacb84732"
+
+[metadata.files]
+async-generator = []
+attrs = []
+authlib = []
+beautifulsoup4 = []
+cached-property = []
+certifi = []
+cffi = []
+chardet = []
+charset-normalizer = []
+click = []
+clr-loader = []
+colorama = []
+comtypes = []
+cryptography = []
+decorator = []
+defusedxml = []
+dnspython = []
+docutils = []
+et-xmlfile = []
+exceptiongroup = []
+exchangelib = []
+fire = []
+fonttools = []
+fpdf2 = []
+furl = []
+graphviz = []
+h11 = []
+htmldocx = []
+hubspot-api-client = []
+idna = []
+importlib-metadata = []
+isodate = []
+java-access-bridge-wrapper = []
+jsonpath-ng = []
+jsonschema = []
+lxml = []
+mss = []
+netsuitesdk = []
+notifiers = []
+ntlm-auth = []
+numpy = []
+o365 = []
+oauthlib = []
+openpyxl = []
+orderedmultidict = []
+outcome = []
+packaging = []
+pandas = []
+"pdfminer.six" = []
+pillow = []
+platformdirs = []
+ply = []
+proxy-tools = []
+psutil = []
+pycparser = []
+pygments = []
+pynput-robocorp-fork = []
+pyobjc-core = []
+pyobjc-framework-cocoa = []
+pyobjc-framework-quartz = []
+pyobjc-framework-webkit = []
+pyotp = []
+pyparsing = []
+pypdf2 = []
+pyperclip = []
+pyqt5 = []
+pyqt5-qt5 = []
+pyqt5-sip = []
+pyqtwebengine = []
+pyqtwebengine-qt5 = []
+pyrsistent = []
+pysocks = []
+python-dateutil = []
+python-docx = []
+python-dotenv = []
+python-xlib = []
+pythonnet = []
+pytz = []
+pytz-deprecation-shim = []
+pywebview = []
+pywin32 = []
+pywinauto = []
+pyyaml = []
+qtpy = []
+requests = []
+requests-file = []
+requests-ntlm = []
+requests-oauthlib = []
+requests-toolbelt = []
+robocorp-dialog = []
+robotframework = []
+robotframework-pythonlibcore = []
+robotframework-requests = []
+robotframework-sapguilibrary = []
+robotframework-seleniumlibrary = []
+robotframework-seleniumtestability = []
+rpaframework = []
+rpaframework-core = []
+rpaframework-dialogs = []
+rpaframework-pdf = []
+rpaframework-windows = []
+selenium = []
+simple-salesforce = []
+simple-term-menu = []
+six = []
+sniffio = []
+sortedcontainers = []
+soupsieve = []
+stringcase = []
+"svg.path" = []
+tenacity = []
+termcolor = []
+tqdm = []
+trio = []
+trio-websocket = []
+tweepy = []
+tzdata = []
+tzlocal = []
+uiautomation = []
+urllib3 = []
+webdriver-manager = []
+wrapt = []
+wsproto = []
+xlrd = []
+xlutils = []
+xlwt = []
+zeep = []
+zipp = []
