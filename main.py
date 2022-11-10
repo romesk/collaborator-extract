@@ -1,7 +1,12 @@
 import os
-import readline  # noqa, to fix bug with max 1024 len input for macos
 
-from simple_term_menu import TerminalMenu
+from sys import platform
+
+if platform == "darwin":
+    import readline  # noqa, to fix bug with max 1024 len input for macos
+
+if platform != "win32":
+    from simple_term_menu import TerminalMenu
 
 from extractor import Extractor, CWD
 
@@ -17,7 +22,7 @@ def say_hello():
     Author: Roman Skok <romeskq> <rma.skok@gmail.com>
     p.s: made with love for uuliankaa <3
     
-    {'▰▰▰▰▰' * 10}
+    {'--' * 10}
     
     """)
 
@@ -31,13 +36,25 @@ def check_existing_sessions() -> dict:
     sessions = os.listdir(sessions_folder_path)
     sessions.append('* use another')
 
-    terminal_menu = TerminalMenu(sessions)
+    print("\nЗнайдено збережені сессії. Виберіть одну: ")
 
-    print("\nЗнайдено збережені сессії. Виберіть одну використовуючи стрілочки: ")
-    menu_choice = terminal_menu.show()  # return index of element
+    if platform != "win32":
+        terminal_menu = TerminalMenu(sessions)
+        menu_choice = terminal_menu.show()  # return index of element
+    else:
+        menu = "\n".join([f"[{i}] - {text}" for i, text in enumerate(sessions)])
+        print(menu)
+        is_num_entered = False
+        menu_choice = len(sessions) - 1
 
-    if menu_choice == len(sessions) - 1:
-        return {}
+        while not is_num_entered:
+            menu_choice = input("Введіть відповідне число: ")
+            is_num_entered = menu_choice.isdigit() or int(menu_choice) in range(len(sessions))
+        
+        menu_choice = int(menu_choice)
+
+        if menu_choice == len(sessions) - 1:
+            return {}
 
     return {
         'cookies': os.path.join(sessions_folder_path, sessions[menu_choice])
