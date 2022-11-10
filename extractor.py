@@ -109,8 +109,12 @@ class Extractor:
         with open(cookies_dump, 'rb') as f:
             cookies = pickle.load(f)
 
-        for name, value in cookies.items():
-            self.browser.add_cookie(name, value, domain='collaborator.pro')
+        if isinstance(cookies, dict):
+            for name, value in cookies.items():
+                self.browser.add_cookie(name, value, domain='collaborator.pro')
+        else:
+            for cookie in cookies:
+                self.browser.driver.add_cookie(cookie)
 
         print("\n> Успішно увійдено використовуючи збережену сессію!")
 
