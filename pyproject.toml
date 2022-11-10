@@ -8,6 +8,9 @@ packages = [{include = "collaborator-extrator"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+rpaframework = "^19.1.1"
+simple-term-menu = "^1.5.2"
+pandas = "^1.5.1"
 
 
 [build-system]
