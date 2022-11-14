@@ -46,7 +46,7 @@ class Extractor:
             raise ex
 
         now = datetime.now().strftime("%d-%m-%Y_%H-%M")
-        filename = f"extract_results_{now}.xlsx"
+        filename = f"[Collaborator-Extract] results_{now}.xlsx"
         self.result_df.to_excel(filename, index=False)
 
         print(f">>> Успішно збережено файл з результатами {filename}.")
@@ -116,7 +116,7 @@ class Extractor:
             for cookie in cookies:
                 self.browser.driver.add_cookie(cookie)
 
-        print("\n> Успішно увійдено використовуючи збережену сессію!")
+        print("\n> Успішно увійдено використовуючи збережену сесію!")
 
         self.browser.go_to(COLLABORATOR_URL)
 
@@ -224,6 +224,3 @@ class Extractor:
         for marketplace in marketplaces:
             parsed_data = self.__parse_separate_marketplace(marketplace)
             self.result_df = pd.concat((self.result_df, pd.DataFrame(parsed_data, index=[0])), ignore_index=True)
-
-
-
