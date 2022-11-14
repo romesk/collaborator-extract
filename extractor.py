@@ -170,7 +170,7 @@ class Extractor:
                           '//a[@class="faw fas fa-external-link tooltips"]'
             ).get_attribute('href')
         except NoSuchElementException:
-            website_url = "Прихований"
+            return {}  # if URL is hidden, skip
 
         themes_list = marketplace.find_elements(By.XPATH, './/td[@class="c-t-theme"]//span[@class="tag"]')
         themes = "\n".join([theme.text for theme in themes_list])
@@ -223,4 +223,6 @@ class Extractor:
 
         for marketplace in marketplaces:
             parsed_data = self.__parse_separate_marketplace(marketplace)
-            self.result_df = pd.concat((self.result_df, pd.DataFrame(parsed_data, index=[0])), ignore_index=True)
+
+            if parsed_data:
+                self.result_df = pd.concat((self.result_df, pd.DataFrame(parsed_data, index=[0])), ignore_index=True)
