@@ -17,7 +17,7 @@ def say_hello():
     """
 
     print(f"""
-    Вітання у пілотній версії Collaborator Extractor!
+    Вітання у Collaborator Extractor!
     
     Author: Roman Skok <romeskq> <rma.skok@gmail.com>
     p.s: made with love for uuliankaa <3
@@ -36,7 +36,7 @@ def check_existing_sessions() -> dict:
     sessions = os.listdir(sessions_folder_path)
     sessions.append('* use another')
 
-    print("\nЗнайдено збережені сессії. Виберіть одну: ")
+    print("\nЗнайдено збережені сесії. Виберіть одну: ")
 
     if platform != "win32":
         terminal_menu = TerminalMenu(sessions)
@@ -63,7 +63,7 @@ def check_existing_sessions() -> dict:
 
 def get_user_data() -> dict:
 
-    print("\n Введіть ваші дані для входу. В майбутньому ви зможете використовувати вже збережені сессії.")
+    print("\n Введіть ваші дані для входу. В майбутньому ви зможете використовувати вже збережені сесії.")
 
     user_login = input("[login]: ")
     user_password = input("[password]: ")
@@ -86,8 +86,18 @@ def main() -> None:
     extractor = Extractor(user_data)
     extractor.start()
 
-    print("Завершення програми.")
+    print("\nЗавершення програми..")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as ex:
+        print("Неочікувана помилка. У разі запитань сконтактуйте автора.\n")
+        raise ex
+    finally:
+        if platform == "win32":
+            os.system("pause")
+        else:
+            os.system("/bin/bash -c 'read -s -n 1 -p \"Press any key to exit...\"'")
+            print('\n')

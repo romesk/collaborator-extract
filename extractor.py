@@ -25,11 +25,12 @@ class Extractor:
 
         self.url = user_data['url']
 
+        print("\n> Виконується вхід..\nЯкщо це перший вхід потрібно зачекати трошки більше часу.")
+
         self.browser = Selenium()
         self.browser.open_available_browser(headless=True)
         self.browser.maximize_browser_window()
 
-        print("\n> Виконується вхід..")
         if 'cookies' in user_data:
             self._login_with_cookies(user_data['cookies'])
         else:
@@ -42,11 +43,10 @@ class Extractor:
         try:
             self._extract_results()
         except Exception as ex:
-            self.browser.capture_page_screenshot('error.png')
             raise ex
 
         now = datetime.now().strftime("%d-%m-%Y_%H-%M")
-        filename = f"extract_results_{now}.xlsx"
+        filename = f"[Collaborator-Extract] results_{now}.xlsx"
         self.result_df.to_excel(filename, index=False)
 
         print(f">>> Успішно збережено файл з результатами {filename}.")
@@ -116,7 +116,7 @@ class Extractor:
             for cookie in cookies:
                 self.browser.driver.add_cookie(cookie)
 
-        print("\n> Успішно увійдено використовуючи збережену сессію!")
+        print("\n> Успішно увійдено використовуючи збережену сесію!")
 
         self.browser.go_to(COLLABORATOR_URL)
 
@@ -125,17 +125,30 @@ class Extractor:
         Process of extracting all the results
         """
 
-        url = re.sub(r'&per-page=\d+', '&per-page=100', self.url)
+        regex = re.compile(r'&per-page=\d+')
+        if regex.search(self.url):
+            url = re.sub(r'&per-page=\d+', '&per-page=100', self.url)
+        else:
+            url = self.url + '&per-page=100'
+
+        url = re.sub(r'&page=\d+', 'page=1', url)  # set 1 as current page
+
         self.browser.go_to(url)
 
         self.browser.wait_until_element_is_visible('xpath://div[@class="creator-catalog block-blur-holder"]')
 
         amount = self.browser.find_element('xpath://div[@class="filter-panel"]/ul/li/b').text
-        max_pages = int(amount) // 100
-        if max_pages % 100:
-            max_pages += 1
+        amount = re.sub(r'[^0-9]', '', amount)
+        max_pages = '?'
 
-        print(f"Знайдено {amount} позицій для зчитування. Починається витягування даних...")
+        if amount.isdecimal():
+            max_pages = int(amount) // 100
+            if max_pages % 100:
+                max_pages += 1
+        else:
+            print("\nНе вдалось з'ясувати кількість результатів.")
+
+        print(f"\nЗнайдено {amount} позицій для зчитування. Починається витягування даних...")
         is_last_page = False
         page_num = 1
 
@@ -155,7 +168,7 @@ class Extractor:
             page_num += 1
 
     @staticmethod
-    def __parse_separate_marketplace(marketplace: WebElement) -> dict:
+    def __parse_separate_marketplace(marketplace: WebElement, marketplace_url: str) -> dict:
         """
         Extract all the data from single marketplace
         :param marketplace: marketplace to process
@@ -163,14 +176,6 @@ class Extractor:
         :return: dict column_name: value
         :rtype: dict
         """
-
-        try:
-            website_url = marketplace.find_element(
-                By.XPATH, './/div[@class="link-holder link-holder_icon-right"]'
-                          '//a[@class="faw fas fa-external-link tooltips"]'
-            ).get_attribute('href')
-        except NoSuchElementException:
-            website_url = "Прихований"
 
         themes_list = marketplace.find_elements(By.XPATH, './/td[@class="c-t-theme"]//span[@class="tag"]')
         themes = "\n".join([theme.text for theme in themes_list])
@@ -181,8 +186,12 @@ class Extractor:
         domain_rating = tds[5].text
 
         article_div = './/div[contains(@class, "format-item format-item--article format-item_sm")]'
-        article_price = marketplace.find_element(
-            By.XPATH, article_div + '//div[@class="creator-price__publication-value"]').text
+
+        try:
+            article_price = marketplace.find_element(
+                By.XPATH, article_div + '//div[@class="creator-price__publication-value"]').text
+        except NoSuchElementException:
+            article_price = ""
 
         try:
             article_writing = marketplace.find_element(
@@ -205,7 +214,7 @@ class Extractor:
             press_release_writing = ""
 
         return {
-            "WEBSITE": website_url,
+            "WEBSITE": marketplace_url,
             "THEMES": themes,
             "TRAFFIC": traffic,
             "DR": domain_rating,
@@ -222,8 +231,31 @@ class Extractor:
         marketplaces = self.browser.find_elements('xpath://tbody/tr')
 
         for marketplace in marketplaces:
-            parsed_data = self.__parse_separate_marketplace(marketplace)
+
+            marketplace_url = self.__get_marketplace_url(marketplace)
+            if not marketplace_url:
+                continue
+
+            try:
+                parsed_data = self.__parse_separate_marketplace(marketplace, marketplace_url)
+            except Exception as ex:
+                print(f"Неочікувана помилка при зчитуванні {marketplace}. Його буде пропущено. {ex}")
+                continue
+
             self.result_df = pd.concat((self.result_df, pd.DataFrame(parsed_data, index=[0])), ignore_index=True)
 
+    @staticmethod
+    def __get_marketplace_url(marketplace: WebElement) -> str:
+        """
+        Get URl of marketplace or return empty string if hidden
+        """
 
+        try:
+            url = marketplace.find_element(
+                By.XPATH, './/div[@class="link-holder link-holder_icon-right"]'
+                          '//a[@class="faw fas fa-external-link tooltips"]'
+            ).get_attribute('href')
+        except NoSuchElementException:
+            return ""  # if URL is hidden
 
+        return url
