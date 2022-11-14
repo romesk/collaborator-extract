@@ -25,11 +25,12 @@ class Extractor:
 
         self.url = user_data['url']
 
+        print("\n> Виконується вхід..\nЯкщо це перший вхід потрібно зачекати трошки більше часу.")
+
         self.browser = Selenium()
         self.browser.open_available_browser(headless=True)
         self.browser.maximize_browser_window()
 
-        print("\n> Виконується вхід..")
         if 'cookies' in user_data:
             self._login_with_cookies(user_data['cookies'])
         else:
@@ -42,7 +43,6 @@ class Extractor:
         try:
             self._extract_results()
         except Exception as ex:
-            self.browser.capture_page_screenshot('error.png')
             raise ex
 
         now = datetime.now().strftime("%d-%m-%Y_%H-%M")
@@ -131,14 +131,22 @@ class Extractor:
         else:
             url = self.url + '&per-page=100'
 
+        url = re.sub(r'&page=\d+', 'page=1', url)  # set 1 as current page
+
         self.browser.go_to(url)
 
         self.browser.wait_until_element_is_visible('xpath://div[@class="creator-catalog block-blur-holder"]')
 
         amount = self.browser.find_element('xpath://div[@class="filter-panel"]/ul/li/b').text
-        max_pages = int(amount) // 100
-        if max_pages % 100:
-            max_pages += 1
+        amount = re.sub(r'[^0-9]', '', amount)
+        max_pages = '?'
+
+        if amount.isdecimal():
+            max_pages = int(amount) // 100
+            if max_pages % 100:
+                max_pages += 1
+        else:
+            print("Не вдалось з'ясувати кількість результатів.")
 
         print(f"Знайдено {amount} позицій для зчитування. Починається витягування даних...")
         is_last_page = False
