@@ -125,7 +125,12 @@ class Extractor:
         Process of extracting all the results
         """
 
-        url = re.sub(r'&per-page=\d+', '&per-page=100', self.url)
+        regex = re.compile(r'&per-page=\d+')
+        if regex.search(self.url):
+            url = re.sub(r'&per-page=\d+', '&per-page=100', self.url)
+        else:
+            url = self.url + '&per-page=100'
+
         self.browser.go_to(url)
 
         self.browser.wait_until_element_is_visible('xpath://div[@class="creator-catalog block-blur-holder"]')
