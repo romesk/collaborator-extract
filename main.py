@@ -86,8 +86,18 @@ def main() -> None:
     extractor = Extractor(user_data)
     extractor.start()
 
-    print("Завершення програми.")
+    print("\nЗавершення програми..")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as ex:
+        print("Неочікувана помилка. У разі запитань сконтактуйте автора.\n")
+        raise ex
+    finally:
+        if platform == "win32":
+            os.system("pause")
+        else:
+            os.system("/bin/bash -c 'read -s -n 1 -p \"Press any key to exit...\"'")
+            print('\n')

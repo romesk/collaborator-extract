@@ -146,9 +146,9 @@ class Extractor:
             if max_pages % 100:
                 max_pages += 1
         else:
-            print("Не вдалось з'ясувати кількість результатів.")
+            print("\nНе вдалось з'ясувати кількість результатів.")
 
-        print(f"Знайдено {amount} позицій для зчитування. Починається витягування даних...")
+        print(f"\nЗнайдено {amount} позицій для зчитування. Починається витягування даних...")
         is_last_page = False
         page_num = 1
 
@@ -168,7 +168,7 @@ class Extractor:
             page_num += 1
 
     @staticmethod
-    def __parse_separate_marketplace(marketplace: WebElement) -> dict:
+    def __parse_separate_marketplace(marketplace: WebElement, marketplace_url: str) -> dict:
         """
         Extract all the data from single marketplace
         :param marketplace: marketplace to process
@@ -176,14 +176,6 @@ class Extractor:
         :return: dict column_name: value
         :rtype: dict
         """
-
-        try:
-            website_url = marketplace.find_element(
-                By.XPATH, './/div[@class="link-holder link-holder_icon-right"]'
-                          '//a[@class="faw fas fa-external-link tooltips"]'
-            ).get_attribute('href')
-        except NoSuchElementException:
-            return {}  # if URL is hidden, skip
 
         themes_list = marketplace.find_elements(By.XPATH, './/td[@class="c-t-theme"]//span[@class="tag"]')
         themes = "\n".join([theme.text for theme in themes_list])
@@ -194,8 +186,12 @@ class Extractor:
         domain_rating = tds[5].text
 
         article_div = './/div[contains(@class, "format-item format-item--article format-item_sm")]'
-        article_price = marketplace.find_element(
-            By.XPATH, article_div + '//div[@class="creator-price__publication-value"]').text
+
+        try:
+            article_price = marketplace.find_element(
+                By.XPATH, article_div + '//div[@class="creator-price__publication-value"]').text
+        except NoSuchElementException:
+            article_price = ""
 
         try:
             article_writing = marketplace.find_element(
@@ -218,7 +214,7 @@ class Extractor:
             press_release_writing = ""
 
         return {
-            "WEBSITE": website_url,
+            "WEBSITE": marketplace_url,
             "THEMES": themes,
             "TRAFFIC": traffic,
             "DR": domain_rating,
@@ -235,7 +231,31 @@ class Extractor:
         marketplaces = self.browser.find_elements('xpath://tbody/tr')
 
         for marketplace in marketplaces:
-            parsed_data = self.__parse_separate_marketplace(marketplace)
 
-            if parsed_data:
-                self.result_df = pd.concat((self.result_df, pd.DataFrame(parsed_data, index=[0])), ignore_index=True)
+            marketplace_url = self.__get_marketplace_url(marketplace)
+            if not marketplace_url:
+                continue
+
+            try:
+                parsed_data = self.__parse_separate_marketplace(marketplace, marketplace_url)
+            except Exception as ex:
+                print(f"Неочікувана помилка при зчитуванні {marketplace}. Його буде пропущено. {ex}")
+                continue
+
+            self.result_df = pd.concat((self.result_df, pd.DataFrame(parsed_data, index=[0])), ignore_index=True)
+
+    @staticmethod
+    def __get_marketplace_url(marketplace: WebElement) -> str:
+        """
+        Get URl of marketplace or return empty string if hidden
+        """
+
+        try:
+            url = marketplace.find_element(
+                By.XPATH, './/div[@class="link-holder link-holder_icon-right"]'
+                          '//a[@class="faw fas fa-external-link tooltips"]'
+            ).get_attribute('href')
+        except NoSuchElementException:
+            return ""  # if URL is hidden
+
+        return url
